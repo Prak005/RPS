@@ -46,6 +46,7 @@ function playRound(humanChoice, computerChoice){
         console.log("You Lose! Scissors beats Paper");
         computerScore++;
     }
+    console.log("CURRENT SCORE\n Player-1 : "+humanScore+"\t PC-arch : "+computerScore);
 }
 
 function playGame(){
