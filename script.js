@@ -52,6 +52,8 @@ function playRound(humanChoice, computerChoice){
 function playGame(){
     for(let i=0;i<5;i++){
         playRound(getHumanChoice(),getComputerChoice());
+        if(humanScore===3 || computerScore===3)
+            break;
     }
     if(humanScore > computerScore)
         console.log("Player-1 Wins!");
