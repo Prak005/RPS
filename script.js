@@ -1,3 +1,4 @@
+console.log("BO5 Game of Rock-Paper-Scissors")
 function getComputerChoice(){
     let choice = Math.random();
     if(choice<0.33)
