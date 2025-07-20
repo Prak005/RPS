@@ -20,7 +20,6 @@ function playRound(humanChoice, computerChoice){
     humanChoice = humanChoice.toLowerCase();
     if(humanChoice === computerChoice){
         console.log("Tie! Draw Again");
-        playRound(getHumanChoice(), getComputerChoice());
     }
     else if(humanChoice==="rock" && computerChoice==="scissors"){
         console.log("You Win! Rock beats Scissors");
@@ -50,7 +49,8 @@ function playRound(humanChoice, computerChoice){
 }
 
 function playGame(){
-    for(let i=0;i<5;i++){
+    for(let i=0;i<5;){
+        i=humanScore+computerScore;
         playRound(getHumanChoice(),getComputerChoice());
         if(humanScore===3 || computerScore===3)
             break;
