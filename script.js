@@ -1,4 +1,8 @@
-console.log("BO5 Game of Rock-Paper-Scissors")
+const body = document.querySelector("body");
+const header = document.createElement("h1");
+header.textContent = "BO5 Game of Rock-Paper-Scissors";
+body.appendChild(header);
+
 function getComputerChoice(){
     let choice = Math.random();
     if(choice<0.33)
@@ -7,11 +11,6 @@ function getComputerChoice(){
         return "paper";
     else
         return "scissors";
-}
-
-function getHumanChoice(){
-    let choice = prompt("Enter Choice","rock");
-    return choice.toLowerCase();
 }
 
 let humanScore = 0;
@@ -48,12 +47,15 @@ function playRound(humanChoice, computerChoice){
     console.log("CURRENT SCORE\n 👨Player-1 : "+humanScore+"\t 🤖PC-arch : "+computerScore);
 }
 
-function playGame(){
-    while(humanScore<3 && computerScore<3)
-        playRound(getHumanChoice(), getComputerChoice());
-    if(humanScore > computerScore)
-        console.log("🎉Player-1 Wins!");
-    else
-        console.log("🤖PC-arch Wins!");
-}
-playGame();
+const btn = document.querySelector("#btn");
+btn.addEventListener("click", (event) => {
+    let target = event.target;
+    switch(target.id){
+        case "scissors" : playRound("scissors", getComputerChoice());
+                          break;
+        case "paper" :playRound("paper", getComputerChoice());
+                      break;
+        case "rock" : playRound("rock",getComputerChoice());
+                      break;
+    }
+});
