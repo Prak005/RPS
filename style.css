@@ -1,0 +1,34 @@
+body{
+    text-align: center;
+    background-color: #1e1e2f;
+    color: #333333;
+    font-size: 24px;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
+}
+#mid{
+    background-color:white;
+    padding: 20px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 350px;
+    width: 600px;
+}
+h1{
+    font-size: 40px;
+}
+button{
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #007acc;
+    color: white;
+    cursor: pointer;
+}
+#scissors, #paper, #rock{
+    margin: 6px;
+}
+

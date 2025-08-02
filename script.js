@@ -43,26 +43,29 @@ function playRound(humanChoice, computerChoice){
         computerScore++;
     }
     res.appendChild(addRes); 
-    const getScore = document.querySelector("#score");
-    const score = document.querySelector("#play");
     score.textContent = "👨Player-1 : "+humanScore+" 🤖PC-arch : "+computerScore;
     getScore.appendChild(score);
 
     if(humanScore>=3 ){
         addRes.textContent ="";
         final.textContent = "Player-1 Wins!";
+        alert("Player-1 Wins!");
         humanScore = 0;
         computerScore = 0;
     }
     if(computerScore>=3 ){
         addRes.textContent ="";
         final.textContent = "PC-arch Wins!";
+        alert("PC-arch Wins!");
         humanScore = 0;
         computerScore = 0;
     }
 }
+const getScore = document.querySelector("#score");
+const score = document.querySelector("#play");
 
 const final = document.querySelector("#finalRes");
+final.setAttribute("style", "padding-top : 12px; font-weight:900;");
 
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", (event) => {
@@ -83,5 +86,6 @@ rst.addEventListener("click", () => {
     humanScore = 0;
     computerScore = 0;
     addRes.textContent = "";
+    final.textContent ="";
     score.textContent = "👨Player-1 : "+humanScore+" 🤖PC-arch : "+computerScore;
 });
