@@ -1,7 +1,3 @@
-const body = document.querySelector("body");
-const header = document.createElement("h1");
-header.textContent = "BO5 Game of Rock-Paper-Scissors";
-body.appendChild(header);
 
 function getComputerChoice(){
     let choice = Math.random();
@@ -17,39 +13,61 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice){
+    const addRes = document.querySelector("#addRes");
+    const res = document.querySelector("#result");
     if(humanChoice === computerChoice){
-        console.log("😮Tie! Draw Again");
+        addRes.textContent = "😮Tie! Draw Again";
     }
     else if(humanChoice==="rock" && computerChoice==="scissors"){
-        console.log("🎉You Win! Rock beats Scissors");
+        addRes.textContent = "🎉You Win! Rock beats Scissors";
         humanScore++;
     }
     else if(humanChoice==="rock" && computerChoice==="paper"){
-        console.log("😭You Lose! Paper beats Rock");
+        addRes.textContent = "😭You Lose! Paper beats Rock";
         computerScore++;
     }
     else if(humanChoice==="scissors" && computerChoice==="rock"){
-        console.log("😭You Lose! Rock beats Scissors");
+        addRes.textContent = "😭You Lose! Rock beats Scissors";
         computerScore++;
     }
     else if(humanChoice==="scissors" && computerChoice==="paper"){
-        console.log("🎉You Win! Scissors beats Paper");
+        addRes.textContent = "🎉You Win! Scissors beats Paper";
         humanScore++;
     }
     else if(humanChoice==="paper" && computerChoice==="rock"){
-        console.log("🎉You Win! Paper beats Rock");
+        addRes.textContent = "🎉You Win! Paper beats Rock";
         humanScore++;
     }
     else if(humanChoice==="paper" && computerChoice==="scissors"){
-        console.log("😭You Lose! Scissors beats Paper");
+        addRes.textContent = "😭You Lose! Scissors beats Paper";
         computerScore++;
     }
-    console.log("CURRENT SCORE\n 👨Player-1 : "+humanScore+"\t 🤖PC-arch : "+computerScore);
+    res.appendChild(addRes); 
+    const getScore = document.querySelector("#score");
+    const score = document.querySelector("#play");
+    score.textContent = "👨Player-1 : "+humanScore+" 🤖PC-arch : "+computerScore;
+    getScore.appendChild(score);
+
+    if(humanScore>=3 ){
+        addRes.textContent ="";
+        final.textContent = "Player-1 Wins!";
+        humanScore = 0;
+        computerScore = 0;
+    }
+    if(computerScore>=3 ){
+        addRes.textContent ="";
+        final.textContent = "PC-arch Wins!";
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
+
+const final = document.querySelector("#finalRes");
 
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", (event) => {
     let target = event.target;
+    final.textContent = "";
     switch(target.id){
         case "scissors" : playRound("scissors", getComputerChoice());
                           break;
@@ -58,4 +76,12 @@ btn.addEventListener("click", (event) => {
         case "rock" : playRound("rock",getComputerChoice());
                       break;
     }
+});
+
+const rst = document.querySelector("#reset");
+rst.addEventListener("click", () => {
+    humanScore = 0;
+    computerScore = 0;
+    addRes.textContent = "";
+    score.textContent = "👨Player-1 : "+humanScore+" 🤖PC-arch : "+computerScore;
 });
